@@ -1,0 +1,118 @@
+.carousel-item {
+    height: 69.2vh;
+    min-height: 200px;
+}
+
+.carousel-caption {
+    bottom: 150px;
+    z-index: 2;
+}
+
+.carousel-caption h5 {
+    font-size: 65px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    font-family: DINPro !important;
+}
+
+.carousel-caption p {
+    width: 100%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.carousel-caption a {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    color: #fff;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.carousel-inner:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.carousel-indicators {
+    bottom: 70px;
+}
+
+.carousel-indicators button {
+    width: 100% !important;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10rem !important;
+    height: 3px;
+    padding: 0;
+    z-index: 2;
+    margin-right: 23px;
+    margin-left: 23px;
+    text-indent: 0px !important;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .carousel-indicators {
+       /* bottom: 25px; */
+       display: none;
+    }
+
+    .carousel-caption {
+        bottom: 350px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 65px;
+    }
+
+    .carousel-caption p {
+        font-size: 18px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .carousel-item {
+        height: 0vh;
+        min-height: 120px;
+    }
+
+    .carousel-indicators {
+       /* bottom: 25px; */
+       display: none;
+    }
+    
+    .carousel-caption {
+        bottom: 165px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 25px;
+    }
+
+    .carousel-caption p {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .carousel-caption a {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
+    .navbar-collapse {
+        background: #fff;
+    }
+}

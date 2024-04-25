@@ -1,0 +1,51 @@
+.card-custom {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    height: 310px;
+}
+
+.card-header-custom {
+    border-radius: 10px 10px 0 0;
+    background-color: #7878ff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.event-description {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.card-body-custom {
+    padding: 20px;
+}
+
+/* Add icon styles */
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.event-detail {
+    padding: 15px;
+    text-align: center;
+}
+
+.event-title {
+    font-size:25px;
+    margin-bottom: 10px;
+}
+
+.event-date {
+    color: #007bff;
+    font-size: 1.1rem;
+}
+
+.event-description {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}

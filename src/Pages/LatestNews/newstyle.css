@@ -1,0 +1,322 @@
+.pb-70 {
+  padding-bottom: 70px !important;
+}
+
+.pt-100 {
+  padding-top: 100px !important;
+}
+
+.rs-event-details .event-title {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.rs-event-details .event-title a {
+  color: #212121;
+}
+
+.rs-event-details .event-meta {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.rs-event-details .event-meta>div {
+  display: inline-block;
+  color: #666;
+}
+
+.rs-event-details .event-meta>div i {
+  margin-right: 3px;
+  color: #ff3115;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px / 1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+fa-calendar:before {
+  content: "\f073";
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.rs-event-details .event-meta>div+div {
+  margin-left: 14px;
+}
+
+.rs-event-details .event-meta>div {
+  display: inline-block;
+  color: #666;
+}
+
+.rs-event-details .event-img {
+  margin-bottom: 25px;
+}
+
+.rs-vertical-middle {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.rs-event-details .share-area .book-btn a {
+  display: inline-block;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  min-width: 147px;
+  padding: 0 20px;
+  border: 2px solid #ff3115;
+  color: #212121;
+  transition: all 0.3s ease 0s;
+  font-weight: 600;
+}
+
+.rs-event-details .share-area .share-inner {
+  text-align: right;
+}
+
+.rs-event-details .share-area .share-inner span {
+  display: inline-block;
+  margin-right: 5px;
+  color: #101010;
+  font-weight: 600;
+}
+
+.rs-event-details .share-area .share-inner a i {
+  border: 1px solid #ddd;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #212121;
+  transition: all 0.3s ease 0s;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px / 1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar-area .search-box {
+  margin-bottom: 45px;
+}
+
+.sidebar-area .title {
+  font-size: 20px;
+  color: #212121;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.sidebar-area .search-box .box-search {
+  position: relative;
+}
+
+.sidebar-area .search-box .form-control {
+  border-radius: 0;
+  box-shadow: none;
+  color: #101010;
+  padding: 5px 15px;
+  height: 45px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.sidebar-area .search-box .btn {
+  position: absolute;
+  right: 3px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  top: 50%;
+  outline: none;
+  transform: translateY(-50%);
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.fa-search:before {
+  content: "\f002";
+}
+.sidebar-area .cate-box {
+  margin-bottom: 45px;
+}
+
+.sidebar-area .title {
+  font-size: 20px;
+  color: #212121;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 25px;
+}
+.sidebar-area .cate-box ul {
+  padding: 0;
+  margin: 0;
+}
+.sidebar-area .cate-box ul li:first-child {
+  padding-top: 0;
+}
+.sidebar-area .cate-box ul li {
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.fa-angle-right:before {
+  content: "\f105";
+}
+.sidebar-area .cate-box ul li a {
+  color: #505050;
+  padding: 0 0 0 5px;
+}
+.sidebar-area .cate-box ul li a span {
+  float: right;
+}
+.sidebar-area .latest-courses {
+  margin-bottom: 45px;
+}
+.sidebar-area .title {
+  font-size: 20px;
+  color: #212121;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 25px;
+}
+.sidebar-area .latest-courses .post-item {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  overflow: hidden;
+}
+.sidebar-area .latest-courses .post-item .post-img {
+  width: 33.33%;
+  transition: all 0.3s ease 0s;
+  float: left;
+}
+.sidebar-area .latest-courses .post-item .post-desc {
+  width: 66.66%;
+  padding-left: 20px;
+  float: left;
+}
+.sidebar-area .latest-courses .post-item .post-desc h4 {
+  margin-bottom: 5px;
+}
+.sidebar-area .latest-courses .post-item .post-desc h4 a {
+  font-size: 16px;
+  color: #212121;
+}
+.sidebar-area .latest-courses .post-item .post-desc .duration {
+  font-weight: 600;
+  color: #777777;
+}
+.fa-clock-o:before {
+  content: "\f017";
+}
+.sidebar-area .latest-courses .post-item .post-desc .price {
+  margin-left: 8px;
+  font-weight: 600;
+  color: #777777;
+}
+.sidebar-area .latest-courses .post-item .post-desc .price span {
+  color: #ff3115;
+}
+.sidebar-area .tags-cloud {
+  margin-bottom: 39px;
+}
+.sidebar-area .title {
+  font-size: 20px;
+  color: #212121;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 25px;
+}
+.sidebar-area .tags-cloud ul {
+  padding: 0;
+  margin: 0;
+}
+.sidebar-area .tags-cloud ul li {
+  float: left;
+  list-style: none;
+}
+.sidebar-area .tags-cloud ul li a {
+  border: 1px solid #d7d7d7;
+  padding: 5px 13px;
+  margin: 0 6px 6px 0;
+  display: block;
+  color: #505050;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 28px;
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
