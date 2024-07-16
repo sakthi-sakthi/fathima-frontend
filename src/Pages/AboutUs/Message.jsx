@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ApiUrl } from '../../API/ApiUrl';
 import styled from 'styled-components';
+import { ApiUrl } from '../../API/ApiUrl';
 
 const MessageContainer = styled.div`
   background-color: #f8f9fa;
@@ -17,7 +17,7 @@ const MessageContent = styled.p`
   line-height: 1.6;
 `;
 
-const MeetOurParish = () => {
+const Message = () => {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -25,7 +25,7 @@ const MeetOurParish = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get(`${ApiUrl}/get/messages/1`);
+                const response = await axios.get(`${ApiUrl}/get/messages/2`);
                 const sortedMessages = response?.data?.data?.sort((a, b) => b.id - a.id);
                 setMessages(sortedMessages);
                 setLoading(false);
@@ -59,17 +59,12 @@ const MeetOurParish = () => {
     return (
         <div className="container">
             <div className="section-title text-center">
-                <h5 className="title mt-3">Parish Priest's Message</h5>
+                <h5 className="title mt-3">Message of Golden Jubilee of Shrine</h5>
             </div>
 
             {latestMessage && (
                 <MessageContainer>
-                    <img src="assets/images/father.jpeg" alt="Fr" style={{ width: '100px', height: '100px', borderRadius: '50%', float: 'right' ,boxShadow:"0px 4px 8px rgba(0, 0, 0, 0.1)" }} title='Rev. Fr. Jeffrey SDB' />
                     <MessageContent dangerouslySetInnerHTML={{ __html: latestMessage?.content }} />
-                    <div style={{ textAlign: 'right' }}>
-                        <p>Yours in Christ Jesus</p>
-                        <p><b>Parish Priest</b></p>
-                    </div>
                 </MessageContainer>
             )}
 
@@ -78,7 +73,7 @@ const MeetOurParish = () => {
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="olderMessagesHeader">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#olderMessagesCollapse" aria-expanded="false" aria-controls="olderMessagesCollapse">
-                                Old Parish Priest Messages
+                                Old Message of Golden Jubilee of Shrine
                             </button>
                         </h2>
                         <div id="olderMessagesCollapse" className="accordion-collapse collapse" aria-labelledby="olderMessagesHeader" data-bs-parent="#olderMessagesAccordion">
@@ -86,12 +81,6 @@ const MeetOurParish = () => {
                                 {olderMessages?.map(message => (
                                     <MessageContainer key={message?.id}>
                                         <MessageContent dangerouslySetInnerHTML={{ __html: message?.content }} />
-                                        <br />
-                                        <div style={{ textAlign: 'right' }}>
-                                            <p> Yours in Christ Jesus</p>
-                                            <p><b>Rector and Parish Priest</b></p>
-                                        </div>
-                                        <img src="assets/images/father.jpeg" alt="Rev. Fr" style={{ width: '100px', height: '100px', borderRadius: '50%', marginBottom: '10px',boxShadow:"0px 4px 8px rgba(0, 0, 0, 0.1)" }} title='Rev. Fr. Jeffrey SDB' />
                                     </MessageContainer>
                                 ))}
                             </div>
@@ -112,4 +101,4 @@ const MeetOurParish = () => {
     );
 };
 
-export default MeetOurParish;
+export default Message;

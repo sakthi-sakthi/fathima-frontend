@@ -44,8 +44,7 @@ const LatestEvent = ({ projectdata }) => {
                             {data?.title}
                           </Link>
                         </span>
-                        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
-                        <br />
+                        <div dangerouslySetInnerHTML={{ __html: data?.content }} className="card-media-body-text"  />
                         <Link to={`/news?newsid=${data?.id}`} className="read-more-btn"> Read More <i className="flaticon-next" /></Link>
                       </div>
                     </div>
@@ -89,8 +88,7 @@ const LatestEvent = ({ projectdata }) => {
                             {data?.title}
                           </Link>
                         </span>
-                        <div dangerouslySetInnerHTML={{ __html: data?.content }} />
-                        <br />
+                        <div dangerouslySetInnerHTML={{ __html: data?.content }} className="card-media-body-text" />
                         <Link to={`/events?eventid=${data?.id}`} className="read-more-btn"> Read More <i className="flaticon-next" /></Link>
                       </div>
                     </div>

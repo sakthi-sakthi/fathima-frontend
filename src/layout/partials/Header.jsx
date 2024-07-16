@@ -24,8 +24,10 @@ const Header = ({ menudata }) => {
                                             d="M464.5 246.7L352 179.2V128h48c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48v51.2l-112.5 67.5A32 32 0 0 0 160 274.1V512h96v-96c0-35.4 28.7-64 64-64s64 28.7 64 64v96h96V274.1c0-11.2-5.9-21.7-15.5-27.4zM0 396V496c0 8.8 7.2 16 16 16h112V320L19.4 366.5A32 32 0 0 0 0 396zm620.6-29.4L512 320v192h112c8.8 0 16-7.2 16-16V396c0-12.8-7.6-24.4-19.4-29.4z"
                                         />
                                     </svg>
-                                    <h6 style={{ display: "inline-block", marginLeft: 5,color:"white",marginBottom:'-5px' }}>
-                                       <UpcomeMassTime />
+                                    <h6 style={{ display: "inline-block", marginLeft: 5, color: "white", marginBottom: '-5px' }}>
+                                        <Link to={'/masstimings'}>
+                                            <UpcomeMassTime />
+                                        </Link>
                                     </h6>
                                 </div>
                             </div>

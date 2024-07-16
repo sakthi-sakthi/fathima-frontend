@@ -49,10 +49,6 @@ const AllNews = () => {
     }, []);
 
     const data = news?.projectdata?.find(item => item.id === parseInt(newsid));
-
-    const handleGoBack = () => {
-        window.history.back();
-    };
     const setNewsfilter = (value) => {
 
         const keys = ["title", "category_name", "content", "eventdate"];
@@ -105,7 +101,7 @@ const AllNews = () => {
                                         <div className="row rs-vertical-middle">
                                             <div className="col-md-4">
                                                 <div className="book-btn mt-5">
-                                                    <Link to="/" onClick={handleGoBack}>Go Back</Link>
+                                                    <Link to="/">Go Back</Link>
                                                 </div>
                                             </div>
                                             <div className="col-md-8">
@@ -157,7 +153,7 @@ const AllNews = () => {
                                     ) : (
                                         <ul className="latest-news">
                                             {latestEvents.map((news, index) => (
-                                                <Link to={`/news?newsid=${data?.id}`} key={index}>
+                                                <Link to={`/news?newsid=${news?.id}`} key={index}>
                                                     <div className="post-item" key={index}>
                                                         <div className="post-img">
                                                             <a href="/">

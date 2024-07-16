@@ -14,6 +14,8 @@ import MassCalendar from "./Pages/Calendar/MassCalendar";
 import MeetOurParish from "./Pages/Calendar/PriestMessage";
 import AllNews from "./Pages/LatestNews/AllNews";
 import AllEvents from "./Pages/LatestNews/AllEvents";
+import AllFlashNews from "./Pages/LatestNews/AllFlashNews";
+import Message from "./Pages/AboutUs/Message";
 
 function App() {
   return (
@@ -27,6 +29,9 @@ function App() {
           <Route path="parish-priest-list" element={<History />} />
           <Route path="priest-from-parish" element={<History />} />
           <Route path="sisters-from-parish" element={<History />} />
+          <Route path="golden-memorial" element={<History />} />
+          <Route path="golden-jubilee" element={<History />} />
+          <Route path="golden-jubilee-message" element={<Message />} />
           {/* For Members Section Routing */}
           <Route path="mass-regulations" element={<Members />} />
           <Route path="sunday-catechism" element={<Members />} />
@@ -69,6 +74,8 @@ function App() {
           <Route path="news" element={<AllNews />} />
           {/* Latest Events Section Routing */}
           <Route path="events" element={<AllEvents />} />
+          {/* Flash News Section Routing */}
+          <Route path="all-flash-news" element={<AllFlashNews />} />
         </Route>
       </Routes>
     </Router>

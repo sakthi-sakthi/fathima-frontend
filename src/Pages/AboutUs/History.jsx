@@ -16,7 +16,9 @@ const History = () => {
       '/sub-station-shrines': 2,
       '/parish-priest-list': 3,
       '/priest-from-parish':4,
-      '/sisters-from-parish':5
+      '/sisters-from-parish':5,
+      '/golden-memorial':31,
+      '/golden-jubilee':32
     };
     setId(path[url] ? path[url] : url);
   }, [url]);
@@ -26,8 +28,6 @@ const History = () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/Pages`);
         const newPages = response?.data?.pages;
-
-        localStorage.setItem('Pages', JSON.stringify(newPages));
 
         setData(newPages);
         setLoading(false);
@@ -39,7 +39,6 @@ const History = () => {
 
     fetchData();
   }, []);
-
   if (loading) {
     return <div className="text-center mt-5">loading...</div>;
   }

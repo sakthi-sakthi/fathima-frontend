@@ -45,10 +45,6 @@ const AllEvents = () => {
     }, [eventid]);
 
     const data = news?.projectdata?.find((item) => item.id === parseInt(eventid));
-
-    const handleGoBack = () => {
-        window.history.back();
-    };
     const setNewsfilter = (value) => {
 
         const keys = ["title", "category_name", "content", "eventdate"];
@@ -100,7 +96,7 @@ const AllEvents = () => {
                                         <div className="row rs-vertical-middle">
                                             <div className="col-md-4">
                                                 <div className="book-btn mt-5">
-                                                    <Link to="/" onClick={handleGoBack}>Go Back</Link>
+                                                    <Link to="/">Go Back</Link>
                                                 </div>
                                             </div>
                                             <div className="col-md-8">
@@ -151,7 +147,7 @@ const AllEvents = () => {
                                         <div>No data available</div>
                                     ) : (
                                         <ul className="latest-news">
-                                            {latestEvents.map((news, index) => (
+                                            {latestEvents?.map((news, index) => (
                                                   <Link to={`/ourevents?eventid=${news?.id}`} key={index}>
                                                     <div className="post-item" key={index}>
                                                         <div className="post-img">
@@ -186,7 +182,7 @@ const AllEvents = () => {
                                         {loading ? (
                                             'Loading...'
                                         ) : (<li>
-                                            <a href="/">{data.category_name}</a>
+                                            <a href="/">{data?.category_name}</a>
                                         </li>
                                         )}
                                     </ul>
