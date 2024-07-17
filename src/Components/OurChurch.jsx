@@ -14,7 +14,7 @@ const OurChurch = () => {
                             <div className="single-events-card style-4">
                                 <div className="events-image">
                                     <Link to={`/history`}>
-                                        <img src='assets/images/church.png' alt="No Event" style={{ height: "305px" }} />
+                                        <img src='assets/images/church.PNG' alt="No Event" style={{ height: "305px" }} />
                                     </Link>
                                 </div>
                                 <div className="events-content">
@@ -65,7 +65,7 @@ const OurChurch = () => {
                             <div className="single-events-card style-4">
                                 <div className="events-image">
                                     <Link to={`/contactus`}>
-                                        <img src='assets/images/church.png' alt="No Event" style={{ height: "305px" }} />
+                                        <img src='assets/images/church.PNG' alt="No Event" style={{ height: "305px" }} />
                                     </Link>
                                 </div>
                                 <div className="events-content">

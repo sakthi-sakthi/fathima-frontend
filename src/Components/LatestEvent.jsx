@@ -25,7 +25,7 @@ const LatestEvent = ({ projectdata }) => {
             {newsData ? (
               newsData.length > 0 ? (
                 <>
-                  {newsData.slice(0, 3).map((data, index) => (
+                  {newsData?.slice(0, 3)?.map((data, index) => (
                     <div className="card-media" key={data?.id}>
                       <div className="card-media-object-container">
                         <div
@@ -69,7 +69,7 @@ const LatestEvent = ({ projectdata }) => {
             {eventData ? (
               eventData.length > 0 ? (
                 <>
-                  {eventData.slice(0, 3).map((data) => (
+                  {eventData?.slice(0, 3)?.map((data) => (
                     <div className="card-media" key={data?.id}>
                       <div className="card-media-object-container">
                         <div
