@@ -8,7 +8,6 @@ this.addEventListener("install", (event) => {
         "/static/js/main.chunk.js",
         "/static/js/1.chunk.js",
         "/index.html",
-        "/",
         "/assets/css/bootstrap.min.css",
         "/assets/css/owl.carousel.min.css",
         "/assets/css/owl.theme.default.min.css",
@@ -44,7 +43,8 @@ this.addEventListener("install", (event) => {
         "/assets/images/img/donate.1.webp",
         "/assets/images/father.jpeg",
         "/assets/images/mom.png",
-        "/assets/images/bgnew.jpg"
+        "/assets/images/bgnew.jpg",
+        "/",
       ]);
     })
   );
