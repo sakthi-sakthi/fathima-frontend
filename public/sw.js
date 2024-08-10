@@ -1,9 +1,8 @@
-let cacheData = "fathima-v1";
-
+let cacheData = "fathima-v2";
 this.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(cacheData).then((cache) => {
-      return cache.addAll([
+      cache.addAll([
         "/static/js/bundle.js",
         "/static/js/0.chunk.js",
         "/static/js/main.chunk.js",
@@ -17,7 +16,6 @@ this.addEventListener("install", (event) => {
         "/assets/css/flaticon.css",
         "/assets/css/remixicon.css",
         "/assets/css/odometer.min.css",
-        "/assets/css/meanmenu.min.css",
         "/assets/css/aos.css",
         "/assets/css/style.css",
         "/assets/css/dark.css",
@@ -46,23 +44,22 @@ this.addEventListener("install", (event) => {
         "/assets/images/img/donate.1.webp",
         "/assets/images/father.jpeg",
         "/assets/images/mom.png",
-        "/assets/images/bgnew.jpg",
-        "https://s11.flagcounter.com/more/4jL0",
-        "https://cms.fathimashrine.com/api/get/homepagee/sections",
+        "/assets/images/bgnew.jpg"
       ]);
     })
   );
 });
 
 this.addEventListener("fetch", (event) => {
-  event.respondWith(
-    fetch(event.request).catch(() => {
-      return caches.match(event.request).then((response) => {
-        return response || new Response("Network error occurred", {
-          status: 408,
-          statusText: "Network error",
-        });
-      });
-    })
-  );
+  if (!navigator.onLine) {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        if (response) {
+          return response;
+        }
+        let requestUrl = event.request.clone();
+        fetch(requestUrl);
+      })
+    );
+  }
 });
