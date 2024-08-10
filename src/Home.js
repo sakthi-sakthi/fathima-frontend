@@ -27,7 +27,7 @@ const Home = () => {
         setHomedata(response?.data?.data);
       } catch (error) {
         setMode("offline");
-        toast.error("You are in offline mode or something went wrong");
+        toast.error("You are in offline mode");
         let collection = localStorage.getItem("HomeData");
         setHomedata(JSON.parse(collection));
       } finally {
@@ -46,7 +46,7 @@ const Home = () => {
 
     window.addEventListener("offline", () => {
       setMode("offline");
-      toast.error("You are in offline mode or something went wrong");
+      toast.error("You are in offline mode");
     });
 
     return () => {
