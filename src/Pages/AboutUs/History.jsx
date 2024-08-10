@@ -9,16 +9,17 @@ const History = () => {
   const [id, setId] = useState();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [mode, setMode] = useState(navigator.onLine ? "online" : "offline");
 
   useEffect(() => {
     const path = {
       '/history': 1,
       '/sub-station-shrines': 2,
       '/parish-priest-list': 3,
-      '/priest-from-parish':4,
-      '/sisters-from-parish':5,
-      '/golden-memorial':31,
-      '/golden-jubilee':32
+      '/priest-from-parish': 4,
+      '/sisters-from-parish': 5,
+      '/golden-memorial': 31,
+      '/golden-jubilee': 32
     };
     setId(path[url] ? path[url] : url);
   }, [url]);
@@ -26,10 +27,15 @@ const History = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${ApiUrl}/get/Pages`);
-        const newPages = response?.data?.pages;
-
-        setData(newPages);
+        if (mode === "online") {
+          const response = await axios.get(`${ApiUrl}/get/Pages`);
+          const newPages = response?.data?.pages;
+          localStorage.setItem("HistoryData", JSON.stringify(newPages));
+          setData(newPages);
+        } else {
+          const localData = localStorage.getItem("HistoryData");
+          setData(localData ? JSON.parse(localData) : []);
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -38,7 +44,46 @@ const History = () => {
     };
 
     fetchData();
+  }, [mode]);
+
+  useEffect(() => {
+    const handleOnline = () => {
+      setMode("online");
+      toast.success("You are now online");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    };
+
+    const handleOffline = () => {
+      setMode("offline");
+      toast.error("You are in offline mode");
+    };
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
   }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      if (mode === "offline") {
+        event.preventDefault();
+        event.returnValue = "You are offline. Reloading the page will erase all offline data. Are you sure you want to continue?";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [mode]);
+
   if (loading) {
     return <div className="text-center mt-5">loading...</div>;
   }
@@ -62,10 +107,8 @@ const History = () => {
               <div key={item.id}>
                 <h2 className="heading text-center mb-4">{item.title}</h2>
                 <div
-                  style={{ textAlign: 'justify',color: 'black !important' }}
-                  dangerouslySetInnerHTML={{
-                    __html: `${item.content}`,
-                  }}
+                  style={{ textAlign: 'justify', color: 'black !important' }}
+                  dangerouslySetInnerHTML={{ __html: item.content }}
                 />
               </div>
             ))}
