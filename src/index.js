@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import swDev from './swDev';
 
 const queryClient = new QueryClient();
 
@@ -18,3 +19,4 @@ ReactDOM.render(
 );
 serviceWorkerRegistration.register();
 reportWebVitals();
+swDev();

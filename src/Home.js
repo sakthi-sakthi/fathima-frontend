@@ -11,37 +11,48 @@ import { ApiUrl } from "./API/ApiUrl";
 import ScrollBar from "./Components/ScrollBar";
 import LatestEvent from "./Components/LatestEvent";
 import OurChurch from "./Components/OurChurch";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [homedata, setHomedata] = useState(null);
+  const [mode, setMode] = useState("online");
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
         localStorage.setItem("HomeData", JSON.stringify(response?.data?.data));
         setHomedata(response?.data?.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        setMode("offline");
+        toast.error("You are in offline mode or something went wrong");
+        let collection = localStorage.getItem("HomeData");
+        setHomedata(JSON.parse(collection));
       } finally {
         setLoading(false);
       }
     };
-    const fetchpageData = async () => {
-      try {
-        const response = await axios.get(`${ApiUrl}/get/Pages/{id}`);
-        const newData = response?.data?.pages;
-        localStorage.removeItem("Pages");
-        localStorage.setItem("Pages", JSON.stringify(newData));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
 
-    fetchpageData();
     fetchData();
+
+    window.addEventListener("online", () => {
+      setMode("online");
+      toast.success("You are back online!", {
+        autoClose: 3000,
+      });
+    });
+
+    window.addEventListener("offline", () => {
+      setMode("offline");
+      toast.error("You are in offline mode or something went wrong");
+    });
+
+    return () => {
+      window.removeEventListener("online", () => {});
+      window.removeEventListener("offline", () => {});
+    };
   }, []);
 
   if (loading) {
@@ -69,15 +80,24 @@ const Home = () => {
 
   return (
     <>
+      <ToastContainer />
       <Header menudata={homedata?.headermenudata} />
-      <Slider sliderdata={homedata?.SlidesData} />
-      <ScrollBar projectdata={homedata?.projectdata} />
-      <AboutUs />
-      <HomeBar />
-      <OurChurch />
-      <LatestEvent projectdata={homedata?.projectdata} />
-      <br />
-      <Footer footerdata={homedata?.footercontactdata} />
+      {mode === "offline" && homedata === null ? (
+        <div className="alert alert-danger" role="alert">
+          No data available for offline mode.
+        </div>
+      ) : (
+        <>
+          <Slider sliderdata={homedata?.SlidesData} />
+          <ScrollBar projectdata={homedata?.projectdata} />
+          <AboutUs />
+          <HomeBar />
+          <OurChurch />
+          <LatestEvent projectdata={homedata?.projectdata} />
+          <br />
+          <Footer footerdata={homedata?.footercontactdata} />
+        </>
+      )}
     </>
   );
 };
