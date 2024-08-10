@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ApiUrl } from '../../API/ApiUrl';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const History = () => {
   const location = useLocation();
@@ -100,6 +102,7 @@ const History = () => {
 
   return (
     <>
+      <ToastContainer /> {/* Add ToastContainer to enable toast notifications */}
       <div className="container subpage">
         <div className="row">
           <div className="col-lg-12">
