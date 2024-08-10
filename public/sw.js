@@ -1,4 +1,4 @@
-let cacheData = "fathima-v2";
+let cacheData = "fathima-v3";
 this.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(cacheData).then((cache) => {
