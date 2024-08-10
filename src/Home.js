@@ -11,6 +11,8 @@ import { ApiUrl } from "./API/ApiUrl";
 import ScrollBar from "./Components/ScrollBar";
 import LatestEvent from "./Components/LatestEvent";
 import OurChurch from "./Components/OurChurch";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -23,16 +25,25 @@ const Home = () => {
         const response = await axios.get(`${ApiUrl}/get/homepagee/sections`);
         localStorage.setItem("HomeData", JSON.stringify(response?.data?.data));
         setHomedata(response?.data?.data);
+        if (mode === "offline") {
+          setMode("online");
+          toast.success("You are now online");
+          setTimeout(() => toast.dismiss(), 2000);
+        }
       } catch (error) {
         setMode("offline");
-        let collection = localStorage.getItem("homedata");
+        let collection = localStorage.getItem("HomeData");
         setHomedata(JSON.parse(collection));
+        if (mode === "online") {
+          setMode("offline");
+          toast.error("You are in offline mode");
+        }
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, [mode]);
 
   if (loading) {
     return (
@@ -59,13 +70,7 @@ const Home = () => {
 
   return (
     <>
-      <div>
-        {mode === "offline" ? (
-          <div className="alert alert-danger" role="alert">
-            You are in offline mode or something went wrong
-          </div>
-        ) : null}
-      </div>
+      <ToastContainer />
       <Header menudata={homedata?.headermenudata} />
       <Slider sliderdata={homedata?.SlidesData} />
       <ScrollBar projectdata={homedata?.projectdata} />
