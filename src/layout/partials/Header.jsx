@@ -182,17 +182,17 @@ const Header = ({ menudata }) => {
                                                 </li>
                                                 {menuItem.children?.map((subItem, subIndex) => (
                                                     <li key={subIndex} className={`menu-sub-title ${url === subItem.url ? "active" : ""}`}>
-                                                        <a href={subItem.url} className="nav-link">
+                                                        <Link to={subItem.url} className="nav-link">
                                                             {subItem.label}
-                                                        </a>
+                                                        </Link>
                                                     </li>
                                                 ))}
                                             </ul>
                                         </>
                                     ) : (
-                                        <a href={menuItem.url} className={`${url === menuItem.url ? "activemain" : ""}`}>
+                                        <Link to={menuItem.url} className={`${url === menuItem.url ? "activemain" : ""}`}>
                                             {menuItem.label}
-                                        </a>
+                                        </Link>
                                     )}
                                 </li>
                             ))}
