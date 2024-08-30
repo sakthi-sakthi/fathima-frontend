@@ -29,7 +29,7 @@ const MainLayout = () => {
         setHomedata(JSON.parse(collection));
         if (mode === "online") {
           setMode("offline");
-          toast.error("You are in offline mode");
+          toast.error("You are in offline");
         }
       } finally {
         setLoading(false);
@@ -49,7 +49,7 @@ const MainLayout = () => {
 
     const handleOffline = () => {
       setMode("offline");
-      toast.error("You are in offline mode");
+      toast.error("You are in offline");
     };
 
     window.addEventListener("online", handleOnline);
