@@ -148,76 +148,57 @@ const Header = ({ menudata }) => {
                                         </li>
                                     ))}
                                 </ul>
-                                <button type="button" className="btn btn-primary" id='massbook-btn'>Mass Booking</button>
+                                <button type="button" className="btn btn-primary btn-sm" id='massbook-btn'>Mass Booking</button>
                             </div>
                         </nav>
                     </div>
                 </div>
 
-                <div className="others-option-for-responsive">
-                    <div className="container">
-                        <div className="dot-menu">
-                            <div className="inner">
-                                <div className="icon">
-                                    <i
-                                        className="ri-menu-3-fill"
-                                        data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasWithBothOptions"
-                                        aria-controls="offcanvasWithBothOptions"
-                                        title='Click to View Menu'
-                                    />
-                                    <div
-                                        className="offcanvas offcanvas-start"
-                                        data-bs-scroll="true"
-                                        tabIndex={-1}
-                                        id="offcanvasWithBothOptions"
-                                        aria-labelledby="offcanvasWithBothOptionsLabel"
-                                    >
-                                        <div className="offcanvas-header">
-                                            <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                                                Our Lady of Fathima Shrine
-                                            </h5>
-                                            <button
-                                                type="button"
-                                                className="btn-close text-reset"
-                                                data-bs-dismiss="offcanvas"
-                                                aria-label="Close"
-                                            />
-                                        </div>
-                                        <div className="offcanvas-body">
-                                            <ul className="navbar-nav ms-auto">
-                                                {menudata?.map((menuItem, index) => (
-                                                    <li key={index} className="nav-item" >
-                                                        {menuItem.children ? (
-                                                            <Link to={menuItem.url} className={`nav-link  ${menuItem.children.some(child => url.includes(child.url)) ? "activemain" : ""}`}>
-                                                                {menuItem.label} {menuItem.children && <i className="fa fa-angle-down ml-2 mb-2" />}
-                                                            </Link>
-                                                        ) : (
-                                                            <Link to={menuItem.url} className={`nav-link ${url === menuItem.url ? "activemain" : ""}`}>
-                                                                {menuItem.label}
-                                                            </Link>
-                                                        )}
-                                                        {menuItem.children && (
-                                                            <ul className="dropdown-menu">
-                                                                {menuItem.children?.map((subItem, subIndex) => (
-                                                                    <li key={subIndex} className={`nav-item ${url === subItem.url ? "active" : ""}`}>
-                                                                        <Link to={subItem.url} className="nav-link">
-                                                                            {subItem.label}
-                                                                        </Link>
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        )}
+                <ul className="nav-mobile">
+                    <li></li>
+                    <li className="menu-container">
+                        <input id="menu-toggle" type="checkbox" />
+                        <label htmlFor="menu-toggle" className="menu-button">
+                            <svg className="icon-open" viewBox="0 0 24 24">
+                                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                            </svg>
+                        </label>
+                        <ul className="menu-sidebar">
+                            {menudata?.map((menuItem, index) => (
+                                <li key={index}>
+                                    {menuItem.children ? (
+                                        <>
+                                            <input type="checkbox" id={`sub-menu-${index}`} className="submenu-toggle" />
+                                            <label htmlFor={`sub-menu-${index}`} className={`menu-item-label ${menuItem.children.some(child => url.includes(child.url)) ? "activemain" : ""}`}>
+                                                {menuItem.label}
+                                                <i className="fa fa-angle-down" style={{ marginLeft: "5px" }} />
+                                            </label>
+                                            <ul className="menu-sub">
+                                                <li className="menu-sub-title">
+                                                    <label className="submenu-label" htmlFor={`sub-menu-${index}`}>
+                                                        Back
+                                                    </label>
+                                                    <div className="arrow left">‹</div>
+                                                </li>
+                                                {menuItem.children?.map((subItem, subIndex) => (
+                                                    <li key={subIndex} className={`menu-sub-title ${url === subItem.url ? "active" : ""}`}>
+                                                        <a href={subItem.url} className="nav-link">
+                                                            {subItem.label}
+                                                        </a>
                                                     </li>
                                                 ))}
                                             </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                        </>
+                                    ) : (
+                                        <a href={menuItem.url} className={`${url === menuItem.url ? "activemain" : ""}`}>
+                                            {menuItem.label}
+                                        </a>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </>
 

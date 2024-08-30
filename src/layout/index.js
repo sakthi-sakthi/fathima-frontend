@@ -88,8 +88,8 @@ const MainLayout = () => {
       >
         <ThreeCircles
           visible={true}
-          height="60"
-          width="60"
+          height="50"
+          width="50"
           color="#012c6d"
           ariaLabel="Our Lady of Fatima Shrine"
         />
